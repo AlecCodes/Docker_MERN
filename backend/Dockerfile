@@ -15,6 +15,7 @@ EXPOSE 4000
 
 CMD [ "npm", "start" ]
 
+# is this necessary? 
 FROM development as dev-envs
 RUN <<EOF
 apt-get update

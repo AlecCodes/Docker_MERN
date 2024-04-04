@@ -1,3 +1,4 @@
+require("./config/config")
 const express = require('express')
 const app = express()
 const Todo = require('./models/todo')
@@ -9,6 +10,8 @@ const PORT = process.env.PORT || 4000
 //MIDDLEWARE
 app.use(cors())
 app.use(express.json())
+
+console.log(process.env.DATABASE_URL)
 
 //ROUTES
 
