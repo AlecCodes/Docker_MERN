@@ -1,9 +1,9 @@
 require("./config/config")
 const express = require('express')
 const app = express()
-const Todo = require('./models/todo')
 require('dotenv').config()
 const cors = require('cors')
+const router = require('./controller/todos')
 
 const PORT = process.env.PORT || 4000
 
@@ -15,13 +15,7 @@ console.log(process.env.DATABASE_URL)
 
 //ROUTES
 
-app.get("/", async (req,res) => {
-    res.json(await Todo.find({}))
-})
+app.use("/api" , router)
 
-app.post("/", async (req, res) => {
-    const newTodo = await Todo.create(req.body)
-    res.json(newTodo)
-})
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}!! XD`))
