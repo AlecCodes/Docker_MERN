@@ -7,12 +7,13 @@ function App() {
 
   async function loader(){
     const response = await fetch('/api')
-    console.log(response)
     const data = await response.json()
+    console.log(data)
     return data
   }
 
   loader()
+    .catch((e) => console.error(e))
 
   return (
     <div className="App">

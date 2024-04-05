@@ -4,12 +4,17 @@ const app = express()
 require('dotenv').config()
 const cors = require('cors')
 const router = require('./controller/todos')
-
-const PORT = process.env.PORT || 4000
+const bodyParser = require("body-parser")
+const PORT = process.env.PORT || 3000
+const cookieParser = require('cookie-parser')
 
 //MIDDLEWARE
 app.use(cors())
-app.use(express.json())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+//app.use(express.json())
 
 console.log(process.env.DATABASE_URL)
 
